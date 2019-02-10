@@ -303,7 +303,7 @@ namespace MakeNLogXSD
         {
             if (string.IsNullOrWhiteSpace(apiTypeName))
             {
-                throw new NotSupportedException("Unknown API type '" + apiTypeName + "'.");
+                throw new NotSupportedException("Unknown API empty type '" + apiTypeName + "'.");
             }
 
             if (IgnoreTypes.Contains(apiTypeName))
@@ -315,6 +315,9 @@ namespace MakeNLogXSD
             {
                 case "Layout":
                     return attribute ? "SimpleLayoutAttribute" : "Layout";
+             
+                case "NLog.Layouts.IntLayout":
+                    return attribute ? "SimpleLayoutAttribute" : "Layout"; //todo union with int?
 
                 case "NLog.Filters.Filter":
                     return attribute ? null : "Filter";
