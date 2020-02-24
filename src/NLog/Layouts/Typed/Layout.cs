@@ -89,7 +89,7 @@ namespace NLog.Layouts
         {
             if (_typeCode == null)
             {
-                value = default;
+                value = default(T);
                 return false;
             }
             return ValueConverter.TryConvertValue(raw, _typeCode.Value, out value);

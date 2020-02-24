@@ -42,14 +42,14 @@ namespace NLog.Internal
         {
             if (raw == null)
             {
-                value = default;
+                value = default(T);
                 return true;
             }
 
             var objTypeCode = typeCode;
             try
             {
-                value = default;
+                value = default(T);
                 switch (objTypeCode)
                 {
                     case TypeCode.Boolean:
@@ -189,7 +189,7 @@ namespace NLog.Internal
                     // case TypeCode.DBNull:
                     default:
                         {
-                            value = default;
+                            value = default(T);
                             return false;
                         }
                 }
@@ -198,7 +198,7 @@ namespace NLog.Internal
             catch (Exception ex)
             {
                 InternalLogger.Trace(ex, "Converion between {0} and {1} failed", raw, typeCode);
-                value = default;
+                value = default(T);
                 return false;
             }
         }

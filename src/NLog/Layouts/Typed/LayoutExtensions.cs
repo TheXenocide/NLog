@@ -63,7 +63,7 @@ namespace NLog.Layouts
         {
             if(l == null)
             {
-                return default;
+                return default(T);
             }
 
             return l.ToValue(logEvent);

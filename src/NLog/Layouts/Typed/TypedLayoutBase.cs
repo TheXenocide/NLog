@@ -123,7 +123,7 @@ namespace NLog.Layouts
 
             if (_layout == null)
             {
-                return default;
+                return default(T);
             }
 
             if (_layout.TryGetRawValue(logEvent, out var raw))
@@ -143,7 +143,7 @@ namespace NLog.Layouts
             }
 
             InternalLogger.Warn("Parse {0} to {1} failed", text, TypedName);
-            return default;
+            return default(T);
         }
 
         /// <summary>
@@ -174,7 +174,7 @@ namespace NLog.Layouts
         {
             if (raw == null)
             {
-                value = default;
+                value = default(T);
                 return true;
             }
 
@@ -189,7 +189,7 @@ namespace NLog.Layouts
                 return true;
             }
 
-            value = default;
+            value = default(T);
 
             return false;
         }
@@ -206,7 +206,7 @@ namespace NLog.Layouts
                 return true;
             }
 
-            value = default;
+            value = default(T);
 
             return false;
         }
